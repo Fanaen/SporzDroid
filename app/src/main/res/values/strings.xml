@@ -1,14 +1,10 @@
 <resources>
-    <string name="app_name">SporzDroid</string>
+    <string name="app_name" translatable="false">SporzDroid</string>
     <string name="title_activity_main">MainActivity</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="one">One</string>
-    <string name="two">Two</string>
 
     <string name="title_tab_game">Games</string>
     <string name="title_tab_person">Persons</string>
     <string name="button_add_game">Create a game</string>
     <string name="button_add_person">Add a person</string>
+    <string name="title_activity_person">Person</string>
 </resources>
