@@ -9,6 +9,7 @@ import android.widget.TextView;
 import fr.fanaen.sporzdroid.R;
 import fr.fanaen.sporzdroid.fragment.PersonFragment.OnListFragmentInteractionListener;
 import fr.fanaen.sporzdroid.fragment.dummy.DummyContent.DummyItem;
+import fr.fanaen.sporzdroid.model.Person;
 
 import java.util.List;
 
@@ -19,12 +20,16 @@ import java.util.List;
  */
 public class PersonRecyclerViewAdapter extends RecyclerView.Adapter<PersonRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private List<Person> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public PersonRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
-        mValues = items;
+    public PersonRecyclerViewAdapter(OnListFragmentInteractionListener listener) {
         mListener = listener;
+        populate();
+    }
+
+    public void populate() {
+        mValues = Person.listAll(Person.class);
     }
 
     @Override
@@ -36,9 +41,8 @@ public class PersonRecyclerViewAdapter extends RecyclerView.Adapter<PersonRecycl
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        final Person item = mValues.get(position);
+        holder.bind(item);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +65,7 @@ public class PersonRecyclerViewAdapter extends RecyclerView.Adapter<PersonRecycl
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public Person mItem;
 
         public ViewHolder(View view) {
             super(view);
@@ -73,6 +77,12 @@ public class PersonRecyclerViewAdapter extends RecyclerView.Adapter<PersonRecycl
         @Override
         public String toString() {
             return super.toString() + " '" + mContentView.getText() + "'";
+        }
+
+        public void bind(Person item) {
+            mItem = item;
+            mIdView.setText("#" + item.getId());
+            mContentView.setText("Person " + item.getId());
         }
     }
 }

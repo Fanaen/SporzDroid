@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import fr.fanaen.sporzdroid.R;
 import fr.fanaen.sporzdroid.fragment.dummy.DummyContent;
 import fr.fanaen.sporzdroid.fragment.dummy.DummyContent.DummyItem;
+import fr.fanaen.sporzdroid.model.Person;
 
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class PersonFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+    public PersonRecyclerViewAdapter adapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -70,7 +72,8 @@ public class PersonFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new PersonRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            adapter = new PersonRecyclerViewAdapter(mListener);
+            recyclerView.setAdapter(adapter);
         }
         return view;
     }
@@ -105,6 +108,6 @@ public class PersonFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onPersonListFragmentInteraction(DummyItem item);
+        void onPersonListFragmentInteraction(Person item);
     }
 }

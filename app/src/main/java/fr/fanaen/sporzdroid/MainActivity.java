@@ -15,8 +15,8 @@ import java.util.List;
 
 import fr.fanaen.sporzdroid.fragment.GameFragment;
 import fr.fanaen.sporzdroid.fragment.PersonFragment;
-import fr.fanaen.sporzdroid.fragment.dummy.DummyContent;
 import fr.fanaen.sporzdroid.model.Game;
+import fr.fanaen.sporzdroid.model.Person;
 
 public class MainActivity extends AppCompatActivity implements
         GameFragment.OnListFragmentInteractionListener,
@@ -61,13 +61,28 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onGameListFragmentInteraction(Game game) {
         System.out.println("Game " + game.getId());
+
+        Person newPerson = new Person();
+        newPerson.save();
+        System.out.println("Person saved");
+
+        List<Person> persons = Person.listAll(Person.class);
+        String result = "ListAll Result: ";
+
+        for(Person item : persons) {
+            result += item.getId() + " ";
+        }
+        System.out.println(result);
+        personFragment.adapter.populate();
+        personFragment.adapter.notifyDataSetChanged();
+
     }
 
     @Override
-    public void onPersonListFragmentInteraction(DummyContent.DummyItem item) {
-        System.out.println("Person " + item.id);
+    public void onPersonListFragmentInteraction(Person item) {
+        System.out.println("Person " + item.getId());
 
-        Game newGame = new Game();
+        /*Game newGame = new Game();
         newGame.save();
         System.out.println("Game saved");
 
@@ -79,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements
         }
         System.out.println(result);
         gameFragment.adapter.populate();
-        gameFragment.adapter.notifyDataSetChanged();
+        gameFragment.adapter.notifyDataSetChanged();*/
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
