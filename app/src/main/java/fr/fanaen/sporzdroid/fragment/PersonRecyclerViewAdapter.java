@@ -81,7 +81,7 @@ public class PersonRecyclerViewAdapter extends RecyclerView.Adapter<PersonRecycl
         public void bind(Person item) {
             mItem = item;
             mIdView.setText("#" + item.getId());
-            mContentView.setText("Person " + item.getId());
+            mContentView.setText(item.getName());
         }
     }
 }
