@@ -12,26 +12,29 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.EditText;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import fr.fanaen.sporzdroid.model.Person;
 
 public class PersonActivity extends AppCompatActivity {
 
     public static final String PERSON_ID = "id";
 
-    private Toolbar toolbar;
+    @Bind(R.id.toolbar)             Toolbar toolbar;
+    @Bind(R.id.input_person_name)   EditText editName;
+
     private boolean createMode;
     private long id;
     private Person person;
 
-    private EditText editName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person);
+        ButterKnife.bind(this);
 
         // Display the bar with back button --
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -41,7 +44,6 @@ public class PersonActivity extends AppCompatActivity {
         createMode = id == -1;
 
         // Prepare fields --
-        editName = (EditText) findViewById(R.id.input_person_name);
         if(editName.requestFocus()) {
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         }

@@ -14,6 +14,9 @@ import android.support.v7.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.BindString;
+import butterknife.ButterKnife;
 import fr.fanaen.sporzdroid.fragment.GameFragment;
 import fr.fanaen.sporzdroid.fragment.GameStateFragment;
 import fr.fanaen.sporzdroid.fragment.ParticipationFragment;
@@ -28,9 +31,12 @@ public class GameActivity extends AppCompatActivity implements
     public static final String GAME_ID = "id";
 
     // Tab fields --
-    private Toolbar toolbar;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+    @Bind(R.id.toolbar)     Toolbar toolbar;
+    @Bind(R.id.tabs)        TabLayout tabLayout;
+    @Bind(R.id.viewpager)   ViewPager viewPager;
+
+    @BindString(R.string.title_tab_game_state)      String gameStateTitle;
+    @BindString(R.string.title_tab_participation)   String participationTitle;
 
     private GameStateFragment gameStateFragment;
     private ParticipationFragment participationFragment;
@@ -44,9 +50,9 @@ public class GameActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        ButterKnife.bind(this);
 
         // Display the bar with back button --
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -63,10 +69,7 @@ public class GameActivity extends AppCompatActivity implements
             game = Game.findById(Game.class, id);
         }
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
-
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
     }
 
@@ -76,8 +79,8 @@ public class GameActivity extends AppCompatActivity implements
         gameStateFragment = new GameStateFragment();
         participationFragment = new ParticipationFragment();
 
-        adapter.addFragment(gameStateFragment, this.getResources().getString(R.string.title_tab_game_state));
-        adapter.addFragment(participationFragment, this.getResources().getString(R.string.title_tab_participation));
+        adapter.addFragment(gameStateFragment, gameStateTitle);
+        adapter.addFragment(participationFragment, participationTitle);
 
         viewPager.setAdapter(adapter);
     }

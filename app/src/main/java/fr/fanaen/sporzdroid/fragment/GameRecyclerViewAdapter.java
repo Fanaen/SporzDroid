@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import fr.fanaen.sporzdroid.R;
 import fr.fanaen.sporzdroid.fragment.GameFragment.OnListFragmentInteractionListener;
 import fr.fanaen.sporzdroid.model.Game;
@@ -64,15 +66,15 @@ public class GameRecyclerViewAdapter extends RecyclerView.Adapter<GameRecyclerVi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
         public Game mItem;
+
+        @Bind(R.id.id)      TextView mIdView;
+        @Bind(R.id.content) TextView mContentView;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            ButterKnife.bind(this, view);
         }
 
         @Override

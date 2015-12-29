@@ -15,6 +15,10 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.BindString;
+import butterknife.ButterKnife;
+import butterknife.OnItemSelected;
 import fr.fanaen.sporzdroid.fragment.GameFragment;
 import fr.fanaen.sporzdroid.fragment.PersonFragment;
 import fr.fanaen.sporzdroid.model.Game;
@@ -24,9 +28,12 @@ public class MainActivity extends AppCompatActivity implements
         GameFragment.OnListFragmentInteractionListener,
         PersonFragment.OnListFragmentInteractionListener {
 
-    private Toolbar toolbar;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+    @Bind(R.id.toolbar)     Toolbar toolbar;
+    @Bind(R.id.tabs)        TabLayout tabLayout;
+    @Bind(R.id.viewpager)   ViewPager viewPager;
+
+    @BindString(R.string.title_tab_game)    String gameTitle;
+    @BindString(R.string.title_tab_person)  String personTitle;
 
     private GameFragment gameFragment;
     private PersonFragment personFragment;
@@ -35,16 +42,10 @@ public class MainActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
-
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
     }
 
@@ -54,8 +55,8 @@ public class MainActivity extends AppCompatActivity implements
         gameFragment = new GameFragment();
         personFragment = new PersonFragment();
 
-        adapter.addFragment(gameFragment, this.getResources().getString(R.string.title_tab_game));
-        adapter.addFragment(personFragment, this.getResources().getString(R.string.title_tab_person));
+        adapter.addFragment(gameFragment, gameTitle);
+        adapter.addFragment(personFragment, personTitle);
 
         viewPager.setAdapter(adapter);
     }

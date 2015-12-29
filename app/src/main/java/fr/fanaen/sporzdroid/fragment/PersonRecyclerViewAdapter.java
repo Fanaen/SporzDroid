@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import fr.fanaen.sporzdroid.R;
 import fr.fanaen.sporzdroid.fragment.PersonFragment.OnListFragmentInteractionListener;
 import fr.fanaen.sporzdroid.model.Person;
@@ -62,15 +64,15 @@ public class PersonRecyclerViewAdapter extends RecyclerView.Adapter<PersonRecycl
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
         public Person mItem;
+
+        @Bind(R.id.id)      TextView mIdView;
+        @Bind(R.id.content) TextView mContentView;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            ButterKnife.bind(this, view);
         }
 
         @Override
