@@ -18,10 +18,13 @@ import java.util.List;
 import fr.fanaen.sporzdroid.R;
 import fr.fanaen.sporzdroid.fragment.GameFragment;
 import fr.fanaen.sporzdroid.fragment.OneFragment;
+import fr.fanaen.sporzdroid.fragment.PersonFragment;
 import fr.fanaen.sporzdroid.fragment.TwoFragment;
 import fr.fanaen.sporzdroid.fragment.dummy.DummyContent;
 
-public class MainActivity extends AppCompatActivity implements GameFragment.OnListFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements
+        GameFragment.OnListFragmentInteractionListener,
+        PersonFragment.OnListFragmentInteractionListener {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -47,12 +50,18 @@ public class MainActivity extends AppCompatActivity implements GameFragment.OnLi
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new GameFragment(), this.getResources().getString(R.string.title_tab_game));
-        adapter.addFragment(new TwoFragment(), this.getResources().getString(R.string.title_tab_person));
+        adapter.addFragment(new PersonFragment(), this.getResources().getString(R.string.title_tab_person));
         viewPager.setAdapter(adapter);
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+    public void onGameListFragmentInteraction(DummyContent.DummyItem item) {
+        System.out.println("Game " + item.id);
+    }
+
+    @Override
+    public void onPersonListFragmentInteraction(DummyContent.DummyItem item) {
+        System.out.println("Person " + item.id);
 
     }
 
