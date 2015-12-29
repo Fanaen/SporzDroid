@@ -11,11 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import fr.fanaen.sporzdroid.R;
-import fr.fanaen.sporzdroid.fragment.dummy.DummyContent;
-import fr.fanaen.sporzdroid.fragment.dummy.DummyContent.DummyItem;
 import fr.fanaen.sporzdroid.model.Person;
-
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.

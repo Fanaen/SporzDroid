@@ -8,13 +8,12 @@ import android.widget.TextView;
 
 import fr.fanaen.sporzdroid.R;
 import fr.fanaen.sporzdroid.fragment.GameFragment.OnListFragmentInteractionListener;
-import fr.fanaen.sporzdroid.fragment.dummy.DummyContent.DummyItem;
 import fr.fanaen.sporzdroid.model.Game;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link Game} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */

@@ -6,15 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import fr.fanaen.sporzdroid.R;
-import fr.fanaen.sporzdroid.fragment.PersonFragment.OnListFragmentInteractionListener;
-import fr.fanaen.sporzdroid.fragment.dummy.DummyContent.DummyItem;
-import fr.fanaen.sporzdroid.model.Person;
-
 import java.util.List;
 
+import fr.fanaen.sporzdroid.R;
+import fr.fanaen.sporzdroid.fragment.PersonFragment.OnListFragmentInteractionListener;
+import fr.fanaen.sporzdroid.model.Person;
+
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link Person} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
