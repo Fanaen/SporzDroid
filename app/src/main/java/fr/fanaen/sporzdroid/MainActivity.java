@@ -16,6 +16,7 @@ import java.util.List;
 import fr.fanaen.sporzdroid.fragment.GameFragment;
 import fr.fanaen.sporzdroid.fragment.PersonFragment;
 import fr.fanaen.sporzdroid.fragment.dummy.DummyContent;
+import fr.fanaen.sporzdroid.model.Game;
 
 public class MainActivity extends AppCompatActivity implements
         GameFragment.OnListFragmentInteractionListener,
@@ -52,6 +53,18 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onGameListFragmentInteraction(DummyContent.DummyItem item) {
         System.out.println("Game " + item.id);
+
+        Game newGame = new Game();
+        newGame.save();
+        System.out.println("Game saved");
+
+        List<Game> games = Game.listAll(Game.class);
+        String result = "ListAll Result: ";
+
+        for(Game game : games) {
+            result += game.getId() + " ";
+        }
+        System.out.println(result);
     }
 
     @Override
