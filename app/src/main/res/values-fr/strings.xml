@@ -6,4 +6,5 @@
     <string name="title_tab_person">Personnes</string>
     <string name="button_add_game">Créer une partie</string>
     <string name="button_add_person">Ajouter une personne</string>
+    <string name="hint_person_name">Nom</string>
 </resources>

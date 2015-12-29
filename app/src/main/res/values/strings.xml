@@ -7,4 +7,5 @@
     <string name="button_add_game">Create a game</string>
     <string name="button_add_person">Add a person</string>
     <string name="title_activity_person">Person</string>
+    <string name="hint_person_name">Name</string>
 </resources>
