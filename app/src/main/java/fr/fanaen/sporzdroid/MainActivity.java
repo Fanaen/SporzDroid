@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity implements
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
+    private GameFragment gameFragment;
+    private PersonFragment personFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +48,13 @@ public class MainActivity extends AppCompatActivity implements
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new GameFragment(), this.getResources().getString(R.string.title_tab_game));
-        adapter.addFragment(new PersonFragment(), this.getResources().getString(R.string.title_tab_person));
+
+        gameFragment = new GameFragment();
+        personFragment = new PersonFragment();
+
+        adapter.addFragment(gameFragment, this.getResources().getString(R.string.title_tab_game));
+        adapter.addFragment(personFragment, this.getResources().getString(R.string.title_tab_person));
+
         viewPager.setAdapter(adapter);
     }
 
@@ -70,7 +78,8 @@ public class MainActivity extends AppCompatActivity implements
             result += game.getId() + " ";
         }
         System.out.println(result);
-
+        gameFragment.adapter.populate();
+        gameFragment.adapter.notifyDataSetChanged();
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {

@@ -28,6 +28,7 @@ public class GameFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+    public GameRecyclerViewAdapter adapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -69,7 +70,8 @@ public class GameFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new GameRecyclerViewAdapter(mListener));
+            adapter = new GameRecyclerViewAdapter(mListener);
+            recyclerView.setAdapter(adapter);
         }
         return view;
     }

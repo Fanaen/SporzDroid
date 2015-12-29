@@ -20,11 +20,15 @@ import java.util.List;
  */
 public class GameRecyclerViewAdapter extends RecyclerView.Adapter<GameRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Game> mValues;
+    private List<Game> mValues;
     private final OnListFragmentInteractionListener mListener;
 
     public GameRecyclerViewAdapter(OnListFragmentInteractionListener listener) {
         mListener = listener;
+        populate();
+    }
+
+    public void populate() {
         mValues = Game.listAll(Game.class);
     }
 
@@ -51,6 +55,8 @@ public class GameRecyclerViewAdapter extends RecyclerView.Adapter<GameRecyclerVi
             }
         });
     }
+
+
 
     @Override
     public int getItemCount() {
