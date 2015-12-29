@@ -9,6 +9,7 @@ import android.widget.TextView;
 import fr.fanaen.sporzdroid.R;
 import fr.fanaen.sporzdroid.fragment.GameFragment.OnListFragmentInteractionListener;
 import fr.fanaen.sporzdroid.fragment.dummy.DummyContent.DummyItem;
+import fr.fanaen.sporzdroid.model.Game;
 
 import java.util.List;
 
@@ -19,12 +20,12 @@ import java.util.List;
  */
 public class GameRecyclerViewAdapter extends RecyclerView.Adapter<GameRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<Game> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public GameRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
-        mValues = items;
+    public GameRecyclerViewAdapter(OnListFragmentInteractionListener listener) {
         mListener = listener;
+        mValues = Game.listAll(Game.class);
     }
 
     @Override
@@ -36,9 +37,8 @@ public class GameRecyclerViewAdapter extends RecyclerView.Adapter<GameRecyclerVi
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        final Game item = mValues.get(position);
+        holder.bind(item);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +46,7 @@ public class GameRecyclerViewAdapter extends RecyclerView.Adapter<GameRecyclerVi
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onGameListFragmentInteraction(holder.mItem);
+                    mListener.onGameListFragmentInteraction(item);
                 }
             }
         });
@@ -61,7 +61,7 @@ public class GameRecyclerViewAdapter extends RecyclerView.Adapter<GameRecyclerVi
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public Game mItem;
 
         public ViewHolder(View view) {
             super(view);
@@ -73,6 +73,12 @@ public class GameRecyclerViewAdapter extends RecyclerView.Adapter<GameRecyclerVi
         @Override
         public String toString() {
             return super.toString() + " '" + mContentView.getText() + "'";
+        }
+
+        public void bind(Game game) {
+            mItem = game;
+            mIdView.setText("#" + game.getId());
+            mContentView.setText("Game " + game.getId());
         }
     }
 }

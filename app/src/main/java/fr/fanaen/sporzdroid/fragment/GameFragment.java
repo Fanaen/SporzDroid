@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import fr.fanaen.sporzdroid.R;
 import fr.fanaen.sporzdroid.fragment.dummy.DummyContent;
 import fr.fanaen.sporzdroid.fragment.dummy.DummyContent.DummyItem;
+import fr.fanaen.sporzdroid.model.Game;
 
 /**
  * A fragment representing a list of Items.
@@ -68,7 +69,7 @@ public class GameFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new GameRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new GameRecyclerViewAdapter(mListener));
         }
         return view;
     }
@@ -103,6 +104,6 @@ public class GameFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onGameListFragmentInteraction(DummyItem item);
+        void onGameListFragmentInteraction(Game game);
     }
 }

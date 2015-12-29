@@ -51,8 +51,13 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onGameListFragmentInteraction(DummyContent.DummyItem item) {
-        System.out.println("Game " + item.id);
+    public void onGameListFragmentInteraction(Game game) {
+        System.out.println("Game " + game.getId());
+    }
+
+    @Override
+    public void onPersonListFragmentInteraction(DummyContent.DummyItem item) {
+        System.out.println("Person " + item.id);
 
         Game newGame = new Game();
         newGame.save();
@@ -65,11 +70,6 @@ public class MainActivity extends AppCompatActivity implements
             result += game.getId() + " ";
         }
         System.out.println(result);
-    }
-
-    @Override
-    public void onPersonListFragmentInteraction(DummyContent.DummyItem item) {
-        System.out.println("Person " + item.id);
 
     }
 
