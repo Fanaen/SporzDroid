@@ -16,10 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.fanaen.sporzdroid.R;
+import fr.fanaen.sporzdroid.fragment.GameFragment;
 import fr.fanaen.sporzdroid.fragment.OneFragment;
 import fr.fanaen.sporzdroid.fragment.TwoFragment;
+import fr.fanaen.sporzdroid.fragment.dummy.DummyContent;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GameFragment.OnListFragmentInteractionListener {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -44,9 +46,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new OneFragment(), "ONE");
+        adapter.addFragment(new GameFragment(), "ONE");
         adapter.addFragment(new TwoFragment(), "TWO");
         viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
