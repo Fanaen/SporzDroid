@@ -7,6 +7,6 @@
     <string name="one">One</string>
     <string name="two">Two</string>
 
-    <string name="title_tab_game">Games</string>
-    <string name="title_tab_person">Persons</string>
+    <string name="title_tab_game">Parties</string>
+    <string name="title_tab_person">Personnes</string>
 </resources>

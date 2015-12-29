@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements GameFragment.OnLi
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity implements GameFragment.OnLi
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new GameFragment(), "ONE");
-        adapter.addFragment(new TwoFragment(), "TWO");
+        adapter.addFragment(new GameFragment(), this.getResources().getString(R.string.title_tab_game));
+        adapter.addFragment(new TwoFragment(), this.getResources().getString(R.string.title_tab_person));
         viewPager.setAdapter(adapter);
     }
 
