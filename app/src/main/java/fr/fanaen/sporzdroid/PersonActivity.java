@@ -1,12 +1,15 @@
 package fr.fanaen.sporzdroid;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.EditText;
 
 import fr.fanaen.sporzdroid.model.Person;
@@ -39,6 +42,9 @@ public class PersonActivity extends AppCompatActivity {
 
         // Prepare fields --
         editName = (EditText) findViewById(R.id.input_person_name);
+        if(editName.requestFocus()) {
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
 
         // Prepare the person object --
         if(createMode) {
@@ -65,18 +71,44 @@ public class PersonActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == R.id.action_save_person) {
-            person.setName(editName.getText().toString());
-            person.save();
-
-            if(createMode) {
-                this.id = person.getId();
-                createMode = false;
-            }
+            onSaveButton();
         }
         else if(id == R.id.action_remove_person && !createMode) {
-            person.delete();
+            // Use the Builder class for convenient dialog construction
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(R.string.dialog_delete_person)
+                    .setPositiveButton(R.string.button_remove, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            onDeleteButton();
+                        }
+                    })
+                    .setNegativeButton(R.string.button_cancel, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // User cancelled the dialog
+                        }
+                    });
+            // Create the AlertDialog object and return it
+            AlertDialog dialog = builder.create();
+            dialog.show();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // Custom events --
+
+    private void onSaveButton() {
+        person.setName(editName.getText().toString());
+        person.save();
+
+        if(createMode) {
+            this.id = person.getId();
+            createMode = false;
+        }
+    }
+
+    private void onDeleteButton() {
+        person.delete();
+        finish();
     }
 }

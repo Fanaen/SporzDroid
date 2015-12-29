@@ -16,4 +16,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_tab_game_state">Game state</string>
     <string name="title_tab_participation">Participation</string>
+    <string name="dialog_delete_person">Remove this person?</string>
+    <string name="button_remove">Remove</string>
+    <string name="button_cancel">Cancel</string>
 </resources>

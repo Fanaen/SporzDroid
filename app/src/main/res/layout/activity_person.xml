@@ -33,7 +33,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapSentences"
-                android:hint="@string/hint_person_name" />
+                android:hint="@string/hint_person_name"
+                />
         </android.support.design.widget.TextInputLayout>
     </android.support.v7.widget.LinearLayoutCompat>
 </android.support.design.widget.CoordinatorLayout>

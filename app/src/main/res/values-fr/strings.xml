@@ -13,4 +13,7 @@
     <string name="title_tab_game_state">État de la partie</string>
     <string name="title_tab_participation">Participation</string>
     <string name="hello_blank_fragment">Hello</string>
+    <string name="dialog_delete_person">Retirer cette personne ?</string>
+    <string name="button_remove">Retirer</string>
+    <string name="button_cancel">Annuler</string>
 </resources>
