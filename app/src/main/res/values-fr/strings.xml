@@ -9,4 +9,6 @@
 
     <string name="title_tab_game">Parties</string>
     <string name="title_tab_person">Personnes</string>
+    <string name="button_add_game">Créer une partie</string>
+    <string name="button_add_person">Ajouter une personne</string>
 </resources>

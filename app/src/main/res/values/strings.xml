@@ -9,4 +9,6 @@
 
     <string name="title_tab_game">Games</string>
     <string name="title_tab_person">Persons</string>
+    <string name="button_add_game">Create a game</string>
+    <string name="button_add_person">Add a person</string>
 </resources>
