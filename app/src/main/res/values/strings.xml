@@ -8,4 +8,6 @@
     <string name="button_add_person">Add a person</string>
     <string name="title_activity_person">Person</string>
     <string name="hint_person_name">Name</string>
+    <string name="button_remove_person">Remove the person</string>
+    <string name="button_save_person">Save the person</string>
 </resources>

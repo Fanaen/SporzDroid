@@ -83,7 +83,10 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onPersonListFragmentInteraction(Person item) {
-        System.out.println("Person " + item.getId());
+        // Redirect to editing activity --
+        Intent intent = new Intent(this, PersonActivity.class);
+        intent.putExtra(PersonActivity.PERSON_ID, item.getId());
+        startActivity(intent);
 
         /*Game newGame = new Game();
         newGame.save();
@@ -147,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements
 
         if(id == R.id.action_add_person) {
             Intent intent = new Intent(this, PersonActivity.class);
+            intent.putExtra(PersonActivity.PERSON_ID, -1);
             startActivity(intent);
         }
 

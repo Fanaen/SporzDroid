@@ -23,4 +23,14 @@ public class Person extends SugarRecord {
     List<Participation> getParticipations() {
         return find(Participation.class, "person = ?", String.valueOf(getId()));
     }
+
+    // -- Getters & Setters --
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
