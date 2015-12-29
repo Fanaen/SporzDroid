@@ -2,7 +2,6 @@ package fr.fanaen.sporzdroid;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -62,23 +61,17 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if(personFragment != null  && gameFragment != null) {
+            personFragment.update();
+            gameFragment.update();
+        }
+    }
+
+    @Override
     public void onGameListFragmentInteraction(Game game) {
         System.out.println("Game " + game.getId());
-
-        Person newPerson = new Person();
-        newPerson.save();
-        System.out.println("Person saved");
-
-        List<Person> persons = Person.listAll(Person.class);
-        String result = "ListAll Result: ";
-
-        for(Person item : persons) {
-            result += item.getId() + " ";
-        }
-        System.out.println(result);
-        personFragment.adapter.populate();
-        personFragment.adapter.notifyDataSetChanged();
-
     }
 
     @Override
@@ -87,20 +80,6 @@ public class MainActivity extends AppCompatActivity implements
         Intent intent = new Intent(this, PersonActivity.class);
         intent.putExtra(PersonActivity.PERSON_ID, item.getId());
         startActivity(intent);
-
-        /*Game newGame = new Game();
-        newGame.save();
-        System.out.println("Game saved");
-
-        List<Game> games = Game.listAll(Game.class);
-        String result = "ListAll Result: ";
-
-        for(Game game : games) {
-            result += game.getId() + " ";
-        }
-        System.out.println(result);
-        gameFragment.adapter.populate();
-        gameFragment.adapter.notifyDataSetChanged();*/
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -132,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
-
+    // -- Menu methods --
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -161,5 +140,4 @@ public class MainActivity extends AppCompatActivity implements
 
         return super.onOptionsItemSelected(item);
     }
-
 }
