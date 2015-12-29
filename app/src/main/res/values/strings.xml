@@ -10,4 +10,10 @@
     <string name="hint_person_name">Name</string>
     <string name="button_remove_person">Remove the person</string>
     <string name="button_save_person">Save the person</string>
+    <string name="title_activity_game">Game</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_tab_game_state">Game state</string>
+    <string name="title_tab_participation">Participation</string>
 </resources>

@@ -9,4 +9,8 @@
     <string name="hint_person_name">Nom</string>
     <string name="button_remove_person">Retirer la personne</string>
     <string name="button_save_person">Enregistrer la personne</string>
+    <string name="title_activity_game">Partie</string>
+    <string name="title_tab_game_state">État de la partie</string>
+    <string name="title_tab_participation">Participation</string>
+    <string name="hello_blank_fragment">Hello</string>
 </resources>

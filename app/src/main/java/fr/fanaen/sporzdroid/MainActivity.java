@@ -70,8 +70,11 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onGameListFragmentInteraction(Game game) {
-        System.out.println("Game " + game.getId());
+    public void onGameListFragmentInteraction(Game item) {
+        // Redirect to editing activity --
+        Intent intent = new Intent(this, GameActivity.class);
+        intent.putExtra(GameActivity.GAME_ID, item.getId());
+        startActivity(intent);
     }
 
     @Override
@@ -130,6 +133,11 @@ public class MainActivity extends AppCompatActivity implements
         if(id == R.id.action_add_person) {
             Intent intent = new Intent(this, PersonActivity.class);
             intent.putExtra(PersonActivity.PERSON_ID, -1);
+            startActivity(intent);
+        }
+        else if(id == R.id.action_add_game) {
+            Intent intent = new Intent(this, GameActivity.class);
+            intent.putExtra(GameActivity.GAME_ID, -1);
             startActivity(intent);
         }
 
