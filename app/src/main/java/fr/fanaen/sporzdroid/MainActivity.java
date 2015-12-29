@@ -1,9 +1,7 @@
 package fr.fanaen.sporzdroid;
 
 import android.os.Bundle;
-import android.app.Activity;
 
-import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,11 +13,8 @@ import android.support.v7.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.fanaen.sporzdroid.R;
 import fr.fanaen.sporzdroid.fragment.GameFragment;
-import fr.fanaen.sporzdroid.fragment.OneFragment;
 import fr.fanaen.sporzdroid.fragment.PersonFragment;
-import fr.fanaen.sporzdroid.fragment.TwoFragment;
 import fr.fanaen.sporzdroid.fragment.dummy.DummyContent;
 
 public class MainActivity extends AppCompatActivity implements
