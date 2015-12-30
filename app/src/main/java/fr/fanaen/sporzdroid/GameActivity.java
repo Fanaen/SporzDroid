@@ -2,14 +2,16 @@ package fr.fanaen.sporzdroid;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +19,8 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.BindString;
 import butterknife.ButterKnife;
-import fr.fanaen.sporzdroid.fragment.GameFragment;
 import fr.fanaen.sporzdroid.fragment.GameStateFragment;
 import fr.fanaen.sporzdroid.fragment.ParticipationFragment;
-import fr.fanaen.sporzdroid.fragment.PersonFragment;
 import fr.fanaen.sporzdroid.model.Game;
 import fr.fanaen.sporzdroid.model.Participation;
 
@@ -134,6 +134,29 @@ public class GameActivity extends AppCompatActivity implements
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
+    }
+
+    // -- Menu methods --
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_game, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        if(id == R.id.action_add_participation) {
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

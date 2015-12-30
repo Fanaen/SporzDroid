@@ -23,4 +23,5 @@
     <string name="label_mutant_number">Nombre de mutants</string>
     <string name="label_player_number">Nombre de joueurs</string>
     <string name="label_medic_number">Nombre de médecins</string>
+    <string name="button_add_participation">Ajouter un joueur</string>
 </resources>
