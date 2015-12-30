@@ -12,8 +12,15 @@
     <string name="title_activity_game">Partie</string>
     <string name="title_tab_game_state">État de la partie</string>
     <string name="title_tab_participation">Participation</string>
-    <string name="hello_blank_fragment">Hello</string>
     <string name="dialog_delete_person">Retirer cette personne ?</string>
     <string name="button_remove">Retirer</string>
     <string name="button_cancel">Annuler</string>
+    <string name="action_next_phase">Prochaine phase</string>
+    <string name="action_previous_phase">Phase précédente</string>
+    <string name="state_game_finished">Partie terminée</string>
+    <string name="state_game_in_progress">Partie en cours</string>
+    <string name="label_phase">Phase courante</string>
+    <string name="label_mutant_number">Nombre de mutants</string>
+    <string name="label_player_number">Nombre de joueurs</string>
+    <string name="label_medic_number">Nombre de médecins</string>
 </resources>
