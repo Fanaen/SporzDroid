@@ -153,7 +153,9 @@ public class GameActivity extends AppCompatActivity implements
         int id = item.getItemId();
 
         if(id == R.id.action_add_participation) {
-
+            Intent intent = new Intent(this, SelectPersonActivity.class);
+            intent.putExtra(SelectPersonActivity.GAME_ID, -1);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

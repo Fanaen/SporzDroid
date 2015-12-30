@@ -24,4 +24,5 @@
     <string name="label_player_number">Nombre de joueurs</string>
     <string name="label_medic_number">Nombre de médecins</string>
     <string name="button_add_participation">Ajouter un joueur</string>
+    <string name="title_activity_select_person">Sélectionner les joueurs</string>
 </resources>

@@ -26,4 +26,5 @@
     <string name="label_player_number">Number of players</string>
     <string name="label_medic_number">Number of medics</string>
     <string name="button_add_participation">Add a player</string>
+    <string name="title_activity_select_person">Select players</string>
 </resources>

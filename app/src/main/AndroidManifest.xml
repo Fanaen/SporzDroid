@@ -48,6 +48,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="fr.fanaen.sporzdroid.MainActivity" />
         </activity>
+        <activity
+            android:name=".SelectPersonActivity"
+            android:label="@string/title_activity_select_person"
+            android:parentActivityName=".GameActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="fr.fanaen.sporzdroid.GameActivity" />
+        </activity>
     </application>
 
 </manifest>
